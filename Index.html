@@ -16,35 +16,23 @@
       margin-top: 15px;
       color: #000000;
     }
-    #unityroomEmbed {
-      margin-top: 20px;
-      width: 800px;
-      height: 600px;
-      border: none;
-      display: none;
-    }
+    /* #unityroomEmbed { ... } を削除またはコメントアウト */
   </style>
  </head>
  <body>
    <input type="text" id="gameIdInput" placeholder="ゲームIDを入力してください">
    <button onclick="showUnityroom()">URLを表示</button>
    <div id="urlDisplay"></div>
-   <iframe id="unityroomEmbed"></iframe>
+   <!-- <iframe id="unityroomEmbed"></iframe> を削除 -->
    <script>
      function showUnityroom() {
        const gameId = document.getElementById('gameIdInput').value.trim();
        const url = `https://unityroom.com/games/${gameId}`;
-       const iframeUrl = `https://unityroom.com/games/${gameId}/iframe`;
        const urlDisplay = document.getElementById('urlDisplay');
-       const unityroomEmbed = document.getElementById('unityroomEmbed');
        if (gameId) {
          urlDisplay.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-         unityroomEmbed.src = iframeUrl;
-         unityroomEmbed.style.display = "block";
        } else {
          urlDisplay.textContent = '';
-         unityroomEmbed.src = '';
-         unityroomEmbed.style.display = "none";
        }
      }
    </script>
